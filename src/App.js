@@ -1,28 +1,47 @@
 import React from 'react'
 import ReactDOM from "react-dom/client";
+import { useState } from "react"
 
-export default function Square() {
+export default function Board() {
 
   return (
-    <div>
-      <Row />
-      <Row />
-      <Row />
-    </div>
+    <table>
+      <tbody>
+        <tr className="board-Row">
+          <MySquare />
+          <MySquare />
+          <MySquare />
+        </tr>
+        <tr className="board-Row">
+          <MySquare />
+          <MySquare />
+          <MySquare />
+        </tr>
+        <tr className="board-Row">
+          <MySquare />
+          <MySquare />
+          <MySquare />
+        </tr>
+      </tbody>
+    </table>
   );
 }
 
 function Row() {
-
   return (
-    <div className="board-Row">
+    <tr className="board-Row">
       <MySquare />
       <MySquare />
       <MySquare />
-    </div>
+    </tr>
   );
 }
 
-function MySquare({ value }) {
-  return <button className="square">{value != null ? value : "_"}</button>;
+function MySquare() {
+  let [value, setValue] = useState("");
+
+  function handleClick() {
+    setValue("X");
+  }
+  return <td onClick={handleClick} className="square">{value != null ? value : ""}</td>;
 };
