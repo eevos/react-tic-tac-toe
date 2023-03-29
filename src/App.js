@@ -6,20 +6,25 @@ export default function Board() {
   // https://react.dev/learn/tutorial-tic-tac-toe#setup-for-the-tutorial
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xNext, setXNext] = useState(true);
+  const [winner, setWinner] = useState(false);
 
   function handleClick(i) {
-    console.log(i);
+    if (squares[i] || winner) {
+      return;
+    }
     const nextSquares = squares.slice();
 
     if (xNext) {
       nextSquares[i] = 'X';
       setXNext(false);
     }
-    else {
+    if (!xNext) {
       nextSquares[i] = "O";
       setXNext(true);
     }
+
     setSquares(nextSquares);
+    setWinner(calculateWinner(nextSquares));
   }
 
   return (
@@ -61,4 +66,28 @@ function Row() {
       <MySquare />
     </tr>
   );
+}
+
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b]
+      && squares[a] === squares[c]) {
+      console.log('winner');
+      return true;
+    }
+  }
+  console.log(' no winner');
+
+  return false;
 }
