@@ -7,19 +7,22 @@ export default function Game() {
   return (
   <div>
     <Board  />
-    <MyButton title="Reset"/>
+    <MyButton class="reset" title="Reset"/>
   </div>
   );
-
 }
+
 function MyButton(props) {
 
   function handleClick() {
-    alert('You clicked me !');
+    
+    if (props.class == "reset"){
+      console.log(this.Board.squares.setSquares(useState(Array(9).fill(null))));
+    }
   }
 
   return (
-    <button onClick={()=>handleClick}>{props.title}</button>
+    <button onClick={handleClick}>{props.title}</button>
   );
 }
 
