@@ -2,7 +2,28 @@ import React from 'react'
 import ReactDOM from "react-dom/client";
 import { useState } from "react"
 
-export default function Board() {
+export default function Game() {
+
+  return (
+  <div>
+    <Board  />
+    <MyButton title="Reset"/>
+  </div>
+  );
+
+}
+function MyButton(props) {
+
+  function handleClick() {
+    alert('You clicked me !');
+  }
+
+  return (
+    <button onClick={()=>handleClick}>{props.title}</button>
+  );
+}
+
+function Board() {
   // https://react.dev/learn/tutorial-tic-tac-toe#setup-for-the-tutorial
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xNext, setXNext] = useState(true);
@@ -49,6 +70,7 @@ export default function Board() {
     </table>
   );
 }
+
 
 function MySquare({ value, onSquareClick }) {
   return <td
