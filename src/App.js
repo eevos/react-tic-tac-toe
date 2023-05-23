@@ -17,7 +17,7 @@ function MyButton(props) {
   function handleClick() {
     
     if (props.class == "reset"){
-      console.log(this.Board.squares.setSquares(useState(Array(9).fill(null))));
+      console.log('this.Board.squares.setSquares(useState(Array(9).fill(null)))');
     }
   }
 
@@ -27,7 +27,6 @@ function MyButton(props) {
 }
 
 function Board() {
-  // https://react.dev/learn/tutorial-tic-tac-toe#setup-for-the-tutorial
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xNext, setXNext] = useState(true);
   const [winner, setWinner] = useState(false);
