@@ -3,11 +3,21 @@ import ReactDOM from "react-dom/client";
 import { useState } from "react"
 
 export default function Game() {
+const [xIsNext, setXIsNext] = useState(true);
+const [history, setHistory] = useState(array(9).fill(null));
+const currentSquares = history[history.length -1];
+
+function handlePlay(nextSquares){
+
+}
 
   return (
   <div>
-    <Board  />
+    <Board xIsNext={xIsNext} squares = {currentSquares} onPlay = {handlePlay} />
     <MyButton class="reset" title="Reset"/>
+    <div className="game-info">
+      <ol>"lol"</ol>
+    </div>
   </div>
   );
 }
