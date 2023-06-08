@@ -1,44 +1,46 @@
-import React from 'react'
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { useState } from "react"
+import { useState } from "react";
 
 export default function Game() {
-const [xIsNext, setXIsNext] = useState(true);
-const [history, setHistory] = useState(array(9).fill(null));
-const currentSquares = history[history.length -1];
+  const [xNext, setxNext] = useState(true);
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const currentSquares = history[history.length - 1];
 
-function handlePlay(nextSquares){
-
-}
-
-  return (
-  <div>
-    <Board xIsNext={xIsNext} squares = {currentSquares} onPlay = {handlePlay} />
-    <MyButton class="reset" title="Reset"/>
-    <div className="game-info">
-      <ol>"lol"</ol>
-    </div>
-  </div>
-  );
-}
-
-function MyButton(props) {
-
-  function handleClick() {
-    
-    if (props.class == "reset"){
-      console.log('this.Board.squares.setSquares(useState(Array(9).fill(null)))');
-    }
+  function handlePlay(nextSquares) {
+    setHistory([...history, nextSquares]);
+    setxNext(!xNext);
   }
 
   return (
-    <button onClick={handleClick}>{props.title}</button>
+    <div className="game">
+      <div className="game-board">
+        <Board xNext={xNext} squares={currentSquares} onPlay={handlePlay} />
+        <MyButton class="reset" title="Reset" />
+        <div className="game-info">
+          <ol>"lol"</ol>
+        </div>
+      </div>
+    </div>
   );
+  // }
+
+  function MyButton(props) {
+    function handleClick() {
+      if (props.class === "reset") {
+        handlePlay(history[0]);
+        
+        console.log(
+          "reset"
+        );
+      }
+    }
+
+    return <button onClick={handleClick}>{props.title}</button>;
+  }
 }
 
-function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [xNext, setXNext] = useState(true);
+function Board({ xNext, squares, onPlay }) {
   const [winner, setWinner] = useState(false);
 
   function handleClick(i) {
@@ -48,15 +50,13 @@ function Board() {
     const nextSquares = squares.slice();
 
     if (xNext) {
-      nextSquares[i] = 'X';
-      setXNext(false);
+      nextSquares[i] = "X";
     }
     if (!xNext) {
       nextSquares[i] = "O";
-      setXNext(true);
     }
 
-    setSquares(nextSquares);
+    onPlay(nextSquares);
     setWinner(calculateWinner(nextSquares));
   }
 
@@ -83,14 +83,13 @@ function Board() {
   );
 }
 
-
 function MySquare({ value, onSquareClick }) {
-  return <td
-    className="square"
-    onClick={onSquareClick}>
-    {value}
-  </td>;
-};
+  return (
+    <td className="square" onClick={onSquareClick}>
+      {value}
+    </td>
+  );
+}
 
 function Row() {
   return (
@@ -111,17 +110,16 @@ function calculateWinner(squares) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b]
-      && squares[a] === squares[c]) {
-      console.log('winner');
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      console.log("winner");
       return true;
     }
   }
-  console.log(' no winner');
+  console.log(" no winner");
 
   return false;
 }
