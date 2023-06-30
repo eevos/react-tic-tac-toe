@@ -56,7 +56,15 @@ body {
   padding: 0;
 }
 
-.square {
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  color: red;
+  border: 1px solid red;
+}
+
+/* .square {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -87,4 +95,4 @@ body {
 
 .game-info {
   margin-left: 20px;
-}
+} */

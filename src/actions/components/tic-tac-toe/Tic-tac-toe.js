@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export default function Game() {
+export default function TicTacToe() {
   const [xNext, setxNext] = useState(true);
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const currentSquares = history[history.length - 1];
@@ -17,7 +17,7 @@ export default function Game() {
         <Board xNext={xNext} squares={currentSquares} onPlay={handlePlay} />
         <MyButton class="reset" title="Reset" />
         <div className="game-info">
-          <ol>"lol"</ol>
+          <ol>"lolol"</ol>
         </div>
       </div>
     </div>
