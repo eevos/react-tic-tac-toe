@@ -1,14 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import TicTacToe from './actions/components/tic-tac-toe/TicTacToe';
+import TicTacToe from "./actions/components/tic-tac-toe/TicTacToe";
 import Header from "./actions/components/header/Header";
+import Welcome from "./actions/components/welcome/welcome";
 
-export default function App(){
+export default function App() {
   return (
-    <div>
+    <Router>
       <Header></Header>
-      <TicTacToe></TicTacToe>
-    </div>
+      <Routes>
+        <Route path='/welcome' element={<Welcome />} />
+        <Route path='/tictactoe' element={<TicTacToe />} />
+      </Routes>
+    </Router>
   );
 }
