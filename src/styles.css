@@ -51,8 +51,8 @@ ul {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  color: red;
-  border: 1px solid red;
+  background-color: lightskyblue;
+  border: 1px solid darkblue;
 
   .dropdown {
     position: relative;
@@ -67,6 +67,7 @@ ul {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
     z-index: 1;
+  background-color: lightblue;
   }
 
   .dropdown:hover .dropdown-content {

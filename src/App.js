@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 import TicTacToe from "./actions/components/tic-tac-toe/TicTacToe";
 import Header from "./actions/components/header/Header";
@@ -11,8 +12,9 @@ export default function App() {
     <Router>
       <Header></Header>
       <Routes>
-        <Route path='/welcome' element={<Welcome />} />
-        <Route path='/tictactoe' element={<TicTacToe />} />
+        <Route index element={<Navigate to="/welcome" replace />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/tictactoe" element={<TicTacToe />} />
       </Routes>
     </Router>
   );
