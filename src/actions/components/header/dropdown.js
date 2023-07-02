@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Dropdown() {
   return (
-    <div class="dropdown">
+    <div className="dropdown">
       <span>Mouse over me</span>
-      <div class="dropdown-content">
+      <div className="dropdown-content">
         <p>Hello World!</p>
       </div>
     </div>
