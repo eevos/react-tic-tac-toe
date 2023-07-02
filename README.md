@@ -1,5 +1,11 @@
   // https://react.dev/learn/tutorial-tic-tac-toe#setup-for-the-tutorial
 
+<!-- Start development: npm start -->
+<!-- 
+On server: 
+- install React Router with : npm install react-router-dom 
+- 
+-->
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
