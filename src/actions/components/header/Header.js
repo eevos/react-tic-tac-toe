@@ -9,7 +9,7 @@ import Welcome from "../welcome/welcome";
 export default function Header() {
   return (
     <div className="header">
-      <p><Dropdown></Dropdown></p>
+      <Dropdown></Dropdown>
       <p>Item 1</p>
       <p>Item 2</p>
       <p>Item 3</p>
