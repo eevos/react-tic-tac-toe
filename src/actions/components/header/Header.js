@@ -10,8 +10,8 @@ export default function Header() {
   return (
     <div className="header">
       <Dropdown></Dropdown>
-        <Link to='/tictactoe'>TicTacToe</Link>
         <Link to='/welcome'>Welcome</Link>
+        <Link to='/tictactoe'>TicTacToe</Link>
         <p>Item 3</p>
     </div>
   );
