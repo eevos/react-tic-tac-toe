@@ -9,6 +9,7 @@ export default function TicTacToe() {
   function handlePlay(nextSquares) {
     setHistory([...history, nextSquares]);
     setxNext(!xNext);
+    console.log("xNext");
   }
 
   return (
@@ -22,16 +23,12 @@ export default function TicTacToe() {
       </div>
     </div>
   );
-  // }
 
   function MyButton(props) {
     function handleClick() {
       if (props.class === "reset") {
         handlePlay(history[0]);
-        
-        console.log(
-          "reset"
-        );
+        console.log("reset");
       }
     }
 
@@ -44,6 +41,7 @@ function Board({ xNext, squares, onPlay }) {
 
   function handleClick(i) {
     if (squares[i] || winner) {
+      setWinner(!winner);
       return;
     }
     const nextSquares = squares.slice();
