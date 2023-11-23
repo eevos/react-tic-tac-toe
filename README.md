@@ -1,4 +1,9 @@
-  // https://react.dev/learn/tutorial-tic-tac-toe#setup-for-the-tutorial
+// https://react.dev/learn/tutorial-tic-tac-toe#setup-for-the-tutorial
+
+/*docker*/
+/*
+docker run -p 3000:3000 --name react-tic-tac-toe-container react-tic-tac-toe:dev
+*/
 
 <!-- Start development: npm start -->
 <!-- 
