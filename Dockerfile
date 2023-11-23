@@ -6,6 +6,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# Declare a volume to be mounted during runtime
+VOLUME ["/app"]
+
 COPY . .
 EXPOSE 3000
 CMD ["npm","start"]
@@ -16,12 +19,15 @@ FROM node:latest AS production
 WORKDIR /app
 
 COPY package*.json ./
+COPY . .
+
 RUN npm install
 
-COPY . .
 RUN npm run build
 
 FROM nginx:latest
+
+RUN apt-get update && apt-get install -y nginx
 
 COPY --from=production /app/build /usr/share/nginx/html
 

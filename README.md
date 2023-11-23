@@ -1,9 +1,23 @@
 // https://react.dev/learn/tutorial-tic-tac-toe#setup-for-the-tutorial
 
-/*docker*/
-/*
-docker run -p 3000:3000 --name react-tic-tac-toe-container react-tic-tac-toe:dev
+/*docker
+build the image
+docker build --target development -t react-tic-tac-toe:dev .
+
+run mounted with a volume
+docker run -p 3000:3000 -v $(pwd):/app --name react-tic-tac-toe-container react-tic-tac-toe:dev
 */
+
+
+/*npm
+
+  npm audit fix --force
+  npm install
+  npm run build
+  serve -s build
+
+*/
+
 
 <!-- Start development: npm start -->
 <!-- 
