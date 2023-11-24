@@ -9,7 +9,6 @@ export default function TicTacToe() {
   function handlePlay(nextSquares) {
     setHistory([...history, nextSquares]);
     setxNext(!xNext);
-    console.log("xNext");
   }
 
   return (

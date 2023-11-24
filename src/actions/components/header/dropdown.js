@@ -8,6 +8,7 @@ export default function Dropdown() {
       <div className="dropdown-content">
         <Link to="/welcome"><p>Welcome</p></Link>
         <Link to="/tictactoe"><p>Play TicTacToe</p></Link>
+        <Link to="/pong"><p>Play Pong</p></Link>
       </div>
     </div>
   );

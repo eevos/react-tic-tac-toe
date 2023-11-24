@@ -5,7 +5,7 @@ export default function Welcome() {
 
     return (
         <div className="welcome">
-            <p>Welcome world!</p>
+            <p>Welcome woorld!</p>
         </div>
     );
 }
